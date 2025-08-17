@@ -2,10 +2,7 @@ import os
 from pypdf import PdfReader
 
 # declare the file_path
-DATA_PATH = 'contracts/'
-
-# list to store parsed docs
-documents = []
+# DATA_PATH = 'contracts/'
 
 # function to load documents that are .txt
 def load_txt(path, filename):
@@ -31,14 +28,22 @@ def load_pdf(path, filename):
         text += page.extract_text() + "\n"
     return {"text: ", text, "source: ", filename}
 
-for filename in os.listdir(DATA_PATH):
-    path = os.path.join(DATA_PATH, filename)
-    
-    if filename.endswith(".txt"):
-        documents.append(load_txt(path, filename))
-    elif filename.endswith(".pdf"):
-        documents.append(load_pdf(path, filename))
-    else:
-        print("ERROR: Not PDF or TXT")
 
-print(f"Loaded {len(documents)} documents")
+
+def load_documents(folder):
+    
+    # list to store parsed docs
+    documents = []
+    
+    for filename in os.listdir(folder):
+        path = os.path.join(folder, filename)
+        
+        if filename.endswith(".txt"):
+            documents.append(load_txt(path, filename))
+        elif filename.endswith(".pdf"):
+            documents.append(load_pdf(path, filename))
+        else:
+            print("ERROR: Not PDF or TXT")
+        return documents
+
+# print(f"Loaded {len(documents)} documents")

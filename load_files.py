@@ -1,5 +1,5 @@
 import os
-from PYPDF2 import PdfReader
+from pypdf import PdfReader
 
 # declare the file_path
 DATA_PATH = 'contracts/'

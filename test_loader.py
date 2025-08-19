@@ -10,11 +10,11 @@ def test_loader():
     print(f"✅ Loaded {len(documents)} documents")
     
     # Show sample metadata for sanity check
-    for i, doc in enumerate(documents[:3]):  # first 3 docs
+    for i, doc in enumerate(documents[::]):
         print("\n--- Document Preview ---")
-        print(f"Source: {doc['source']}")
-        print(f"Text (first 300 chars): {doc['text'][:300]}...")
-        print(f"Length: {len(doc['text'].split())} words")
+        print(f"Source: {doc['source: ']}")
+        print(f"Text (first 300 chars): {doc['text: '][:300]}...")
+        print(f"Length: {len(doc['text: '].split())} words")
 
 if __name__ == "__main__":
     test_loader()

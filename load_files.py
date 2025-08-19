@@ -12,7 +12,7 @@ def load_txt(path, filename):
     
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
-    return {"text: ", text, "source: ", filename}
+    return {"text: ": text, "source: ": filename}
 
 # function to load documents that are .pdf
 def load_pdf(path, filename):
@@ -26,7 +26,7 @@ def load_pdf(path, filename):
         
         # append text from each page to the string of metadata with a new line character
         text += page.extract_text() + "\n"
-    return {"text: ", text, "source: ", filename}
+    return {"text: ": text, "source: ": filename}
 
 
 
@@ -44,6 +44,6 @@ def load_documents(folder):
             documents.append(load_pdf(path, filename))
         else:
             print("ERROR: Not PDF or TXT")
-        return documents
+    return documents
 
 # print(f"Loaded {len(documents)} documents")
